@@ -1276,6 +1276,22 @@ window.addEventListener('DOMContentLoaded', (event) => {
             this.lastgoals = [...this.lastinputs]
             this.swap = []
         }
+        log(){
+            let json = {}
+            json.structure = []
+            json.setup = [...this.setup]
+            for(let t = 0;t<this.structure.length;t++){
+                json.structure.push({})
+                for(let k = 0;k<this.structure[t].length;k++){
+                    json.structure[t][k] = {}
+                    json.structure[t][k].bias = this.structure[t][k].bias.valueOf()
+                    for(let w = 0;w<this.structure[t][k].weights.length;w++){
+                        json.structure[t][k][w] = (this.structure[t][k].weights[w].valueOf())
+                    }
+                }
+            }
+            console.log(json)
+        }
         becomeNetworkFrom(network) { //using a js file with one variable can be good for this
             for (let t = 0; t < network.structure.length; t++) {
                 for (let k = 0; k < network.structure[t].length; k++) {
