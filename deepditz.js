@@ -1314,8 +1314,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     if (t === this.structure.length - 1) {
                         error = (goals[k].valueOf() - output);
                     } else {
-                        for (let k = 0; k < perceptron.outputConnections.length; k++) {
-                            const currentConnection = perceptron.outputConnections[k]
+                        for (let r = 0; r < perceptron.outputConnections.length; r++) {
+                            const currentConnection = perceptron.outputConnections[r]
                             error += currentConnection.to.delta * currentConnection.valueOf()
                         }
                     }
