@@ -1241,8 +1241,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     this.value += (inputs[t].valueOf() * this.weights[t].valueOf())
                 }
             }
-            this.relu() //relu could be subbed for sigmoid, but I don't know the math enough to explain it here
+           // this.relu() //relu could be subbed for sigmoid, but I don't know the math enough to explain it here
+            this.sig()
             return this.value
+        }
+
+        sig() {
+            this.value =  1 / (1 + Math.exp(-this.value));
         }
         relu() {
             this.value = Math.min(Math.max(this.value, 0.000001), 1) //.0000001 is used to prevent vanishing gradient, but could or perhaps should be 0 or as high as .01 perhaps if needed
